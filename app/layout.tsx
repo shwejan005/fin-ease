@@ -4,10 +4,15 @@ import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import Navbar from "@/components/ui/Navbar"; 
 import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/nextjs";
 import type { Metadata } from "next";
-import { League_Spartan } from "next/font/google";
+import { League_Spartan, Silkscreen } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 
 const leagueSpartan = League_Spartan({ subsets: ["latin"] });
+
+export const silkScreen = Silkscreen({
+  subsets: ["latin"],
+  weight: "400"
+});
 
 export const metadata: Metadata = {
   title: "FinEase",
@@ -33,7 +38,9 @@ export default function RootLayout({
           >
             <SignedIn>
               <div className="min-h-screen">
-                <Navbar />
+                <div className="border-b ">
+                  <Navbar />
+                </div>
                 <main>
                   {children}
                 </main>
