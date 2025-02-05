@@ -73,7 +73,7 @@ const navigation = [
       {
         title: "Loan Calculator",
         icon: Calculator,
-        href: "/dashboard/tools/loan-calculator",
+        href: "/dashboard/loan-calculator",
       },
       {
         title: "Credit Health",
