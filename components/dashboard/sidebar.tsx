@@ -30,7 +30,6 @@ import {
 } from "@/components/ui/sidebar"
 import Link from "next/link"
 import { silkScreen } from "@/app/layout"
-import ModeToggle from "../mode-toggle"
 
 const navigation = [
   {
@@ -132,7 +131,6 @@ export function DashboardSidebar() {
     <Sidebar className="border-r dark:bg-black white:bg-white">
       <SidebarHeader className="border-b">
         <SidebarMenu>
-          <div className="flex justify-between">
             <SidebarMenuItem>
               <SidebarMenuButton size="lg" asChild>
                 <Link href="/dashboard" className="flex items-center justify-center gap-2">
@@ -143,9 +141,6 @@ export function DashboardSidebar() {
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
-            {/* Mode Toggle component */}
-            <ModeToggle />
-          </div>
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
