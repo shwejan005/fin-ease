@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes"
+import Navbar from "@/components/ui/Navbar"
+import { Footer } from "@/components/ui/Footer"
 
 interface Feature {
   title: string
@@ -116,6 +118,9 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
+      <div className="border-b ">
+        <Navbar />
+      </div>
       <section className="px-4 py-12 md:py-24 lg:py-32 text-center bg-gradient-to-b from-green-50 to-white dark:from-background dark:to-background">
         <div className="container mx-auto space-y-6 max-w-5xl">
           <motion.div
@@ -200,6 +205,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   )
 }

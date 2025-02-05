@@ -1,6 +1,6 @@
-import { LearnLayout } from "@/components/learn-layout"
-import { ConceptCard } from "@/components/concept-card"
-import { PracticeExercise } from "@/components/practice-exercise"
+import { LearnLayout } from "@/components/learn/learn-layout"
+import { ConceptCard } from "@/components/learn/concept-card"
+import { PracticeExercise } from "@/components/learn/practice-exercise"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { AlertTriangle } from 'lucide-react'

@@ -1,8 +1,8 @@
-import { LearnLayout } from "@/components/learn-layout"
-import { StoryCard } from "@/components/story-card"
-import { QuickTip } from "@/components/quick-tip"
-import { ConceptCard } from "@/components/concept-card"
-import { PracticeExercise } from "@/components/practice-exercise"
+import { LearnLayout } from "@/components/learn/learn-layout"
+import { StoryCard } from "@/components/learn/story-card"
+import { QuickTip } from "@/components/learn/quick-tip"
+import { ConceptCard } from "@/components/learn/concept-card"
+import { PracticeExercise } from "@/components/learn/practice-exercise"
 import { Card, CardContent } from "@/components/ui/card"
 import { Calculator, ArrowRight, FileText, Percent } from "lucide-react"
 

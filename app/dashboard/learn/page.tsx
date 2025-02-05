@@ -4,7 +4,7 @@ import { Landmark, Calculator, BookOpen, ArrowRight } from "lucide-react"
 
 export default function LearnPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-black">
       <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <div className="mb-12 text-center">
@@ -17,7 +17,7 @@ export default function LearnPage() {
         {/* Main Grid */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {/* Banking Services Card */}
-          <Link href="/learn/banking-services" className="transition-transform hover:scale-105">
+          <Link href="/dashboard/learn/banking-services" className="transition-transform hover:scale-105">
             <Card className="h-full border-green-800/20 bg-card/50 backdrop-blur">
               <CardHeader>
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-900/20">
@@ -42,7 +42,7 @@ export default function LearnPage() {
           </Link>
 
           {/* Loans Card */}
-          <Link href="/learn/loans" className="transition-transform hover:scale-105">
+          <Link href="/dashboard/learn/loans" className="transition-transform hover:scale-105">
             <Card className="h-full border-green-800/20 bg-card/50 backdrop-blur">
               <CardHeader>
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-900/20">
@@ -67,7 +67,7 @@ export default function LearnPage() {
           </Link>
 
           {/* Financial Education Card */}
-          <Link href="/learn/financial-education" className="transition-transform hover:scale-105">
+          <Link href="/dashboard/learn/financial-education" className="transition-transform hover:scale-105">
             <Card className="h-full border-green-800/20 bg-card/50 backdrop-blur">
               <CardHeader>
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-900/20">
@@ -100,7 +100,7 @@ export default function LearnPage() {
             explanations, real examples, and practice questions to help you learn better.
           </p>
           <div className="mt-4 flex items-center text-green-500">
-            <Link href="/learn/banking-services" className="flex items-center hover:underline">
+            <Link href="/dashboard/learn/banking-services" className="flex items-center hover:underline">
               <span>Begin with Banking Services</span>
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
