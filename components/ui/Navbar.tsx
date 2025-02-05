@@ -11,9 +11,6 @@ function Navbar() {
         FinEase
       </Link>
       <div className='flex items-center justify-center gap-4'>
-        <Link href='/learn' className='text-green-500 hover:text-green-400'>
-          Learn
-        </Link>
         <ModeToggle />
         <UserButton />
       </div>

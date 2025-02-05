@@ -1,6 +1,7 @@
 import "./globals.css";
 import ConvexClerkProvider from "@/components/providers/ConvexClerkProvider";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { Footer } from "@/components/ui/Footer";
 import Navbar from "@/components/ui/Navbar"; 
 import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/nextjs";
 import type { Metadata } from "next";
@@ -19,11 +20,13 @@ export const metadata: Metadata = {
   description: "A Cool Financial Education Platform",
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>)
+{
   return (
     <ConvexClerkProvider>
       <html lang="en" suppressHydrationWarning>
@@ -44,6 +47,7 @@ export default function RootLayout({
                 <main>
                   {children}
                 </main>
+                <Footer />
               </div>
             </SignedIn>
 

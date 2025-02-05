@@ -8,10 +8,10 @@ interface QuickTipProps {
 
 export function QuickTip({ title, description }: QuickTipProps) {
   return (
-    <Alert className="border-green-400/30 bg-green-50/50">
-      <Lightbulb className="h-4 w-4 text-green-600" />
-      <AlertTitle className="text-green-800">{title}</AlertTitle>
-      <AlertDescription className="text-gray-600">{description}</AlertDescription>
+    <Alert className="border-green-600/30 bg-accent dark:border-green-400/30">
+      <Lightbulb className="h-4 w-4 text-green-600 dark:text-green-400" />
+      <AlertTitle className="text-foreground">{title}</AlertTitle>
+      <AlertDescription className="text-muted-foreground">{description}</AlertDescription>
     </Alert>
   )
 }

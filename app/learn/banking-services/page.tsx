@@ -4,16 +4,15 @@ import { QuickTip } from "@/components/quick-tip"
 import { ConceptCard } from "@/components/concept-card"
 import { PracticeExercise } from "@/components/practice-exercise"
 import { Card, CardContent } from "@/components/ui/card"
-import { Landmark, CreditCard, PiggyBank, ArrowRight } from 'lucide-react'
+import { Landmark, CreditCard, PiggyBank, ArrowRight } from "lucide-react"
 
 export default function BankingServicesPage() {
-  // Track completed sections
   const completedSections = [
-    'banking.intro',
-    'banking.what-is-bank',
-    'banking.account-types',
-    'banking.digital-services',
-    'banking.safety'
+    "banking.intro",
+    "banking.what-is-bank",
+    "banking.account-types",
+    "banking.digital-services",
+    "banking.safety",
   ]
 
   return (
@@ -21,10 +20,12 @@ export default function BankingServicesPage() {
       <div className="space-y-8">
         {/* Introduction Section */}
         <section className="space-y-4">
-          <h1 className="text-center text-4xl font-bold text-green-800">Understanding Banking Services</h1>
+          <h1 className="text-center text-4xl font-bold text-green-500 dark:text-green-400">
+            Understanding Banking Services
+          </h1>
 
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-muted-foreground">
               Banks are safe places to keep your money and help you manage it better. Let's learn about different
               banking services and how they can help you.
             </p>
@@ -33,7 +34,7 @@ export default function BankingServicesPage() {
 
         {/* What is a Bank Section */}
         <section className="space-y-6">
-          <h2 className="text-2xl font-semibold text-green-700">What is a Bank?</h2>
+          <h2 className="text-2xl font-semibold text-green-500 dark:text-green-400">What is a Bank?</h2>
 
           <div className="grid gap-6 md:grid-cols-2">
             <ConceptCard
@@ -57,16 +58,16 @@ export default function BankingServicesPage() {
 
         {/* Types of Bank Accounts */}
         <section className="space-y-6">
-          <h2 className="text-2xl font-semibold text-green-700">Types of Bank Accounts</h2>
+          <h2 className="text-2xl font-semibold text-green-500 dark:text-green-400">Types of Bank Accounts</h2>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <Card className="border-green-100">
+            <Card className="border-green-800/20 bg-card/50 backdrop-blur">
               <CardContent className="pt-6">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-                  <PiggyBank className="h-6 w-6 text-green-600" />
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-900/20">
+                  <PiggyBank className="h-6 w-6 text-green-500" />
                 </div>
-                <h3 className="mb-2 text-lg font-medium text-green-800">Basic Savings Account</h3>
-                <ul className="ml-4 list-disc space-y-2 text-gray-600">
+                <h3 className="mb-2 text-lg font-medium text-foreground">Basic Savings Account</h3>
+                <ul className="ml-4 list-disc space-y-2 text-muted-foreground">
                   <li>Minimum balance: ₹500-1000</li>
                   <li>Earn interest on your savings</li>
                   <li>Free ATM card</li>
@@ -75,13 +76,13 @@ export default function BankingServicesPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-green-100">
+            <Card className="border-green-800/20 bg-card/50 backdrop-blur">
               <CardContent className="pt-6">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-                  <Landmark className="h-6 w-6 text-green-600" />
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-900/20">
+                  <Landmark className="h-6 w-6 text-green-500" />
                 </div>
-                <h3 className="mb-2 text-lg font-medium text-green-800">Zero Balance Account</h3>
-                <ul className="ml-4 list-disc space-y-2 text-gray-600">
+                <h3 className="mb-2 text-lg font-medium text-foreground">Zero Balance Account</h3>
+                <ul className="ml-4 list-disc space-y-2 text-muted-foreground">
                   <li>No minimum balance required</li>
                   <li>Perfect for students and low-income groups</li>
                   <li>Basic banking services</li>
@@ -90,13 +91,13 @@ export default function BankingServicesPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-green-100">
+            <Card className="border-green-800/20 bg-card/50 backdrop-blur">
               <CardContent className="pt-6">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-                  <CreditCard className="h-6 w-6 text-green-600" />
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-900/20">
+                  <CreditCard className="h-6 w-6 text-green-500" />
                 </div>
-                <h3 className="mb-2 text-lg font-medium text-green-800">Current Account</h3>
-                <ul className="ml-4 list-disc space-y-2 text-gray-600">
+                <h3 className="mb-2 text-lg font-medium text-foreground">Current Account</h3>
+                <ul className="ml-4 list-disc space-y-2 text-muted-foreground">
                   <li>For businesses and shops</li>
                   <li>Higher transaction limits</li>
                   <li>Checkbook facility</li>
@@ -109,7 +110,7 @@ export default function BankingServicesPage() {
 
         {/* Digital Banking Services */}
         <section className="space-y-6">
-          <h2 className="text-2xl font-semibold text-green-700">Digital Banking Services</h2>
+          <h2 className="text-2xl font-semibold text-green-500 dark:text-green-400">Digital Banking Services</h2>
 
           <div className="grid gap-6 md:grid-cols-2">
             <ConceptCard
@@ -124,24 +125,24 @@ export default function BankingServicesPage() {
             />
 
             <div className="space-y-4">
-              <Card className="border-green-100">
+              <Card className="border-green-800/20 bg-card/50 backdrop-blur">
                 <CardContent className="pt-6">
-                  <h3 className="mb-4 text-lg font-medium text-green-800">How to Set Up UPI</h3>
-                  <ol className="ml-4 list-decimal space-y-3 text-gray-600">
+                  <h3 className="mb-4 text-lg font-medium text-foreground">How to Set Up UPI</h3>
+                  <ol className="ml-4 space-y-3 text-muted-foreground">
                     <li className="flex items-center gap-2">
-                      <ArrowRight className="h-4 w-4 text-green-600" />
+                      <ArrowRight className="h-4 w-4 text-green-500" />
                       Download a UPI app (PhonePe, Google Pay, etc.)
                     </li>
                     <li className="flex items-center gap-2">
-                      <ArrowRight className="h-4 w-4 text-green-600" />
+                      <ArrowRight className="h-4 w-4 text-green-500" />
                       Link your bank account
                     </li>
                     <li className="flex items-center gap-2">
-                      <ArrowRight className="h-4 w-4 text-green-600" />
+                      <ArrowRight className="h-4 w-4 text-green-500" />
                       Set up your UPI PIN
                     </li>
                     <li className="flex items-center gap-2">
-                      <ArrowRight className="h-4 w-4 text-green-600" />
+                      <ArrowRight className="h-4 w-4 text-green-500" />
                       Start sending/receiving money
                     </li>
                   </ol>
@@ -158,7 +159,7 @@ export default function BankingServicesPage() {
 
         {/* Practice Exercise */}
         <section className="space-y-6">
-          <h2 className="text-2xl font-semibold text-green-700">Test Your Knowledge</h2>
+          <h2 className="text-2xl font-semibold text-green-500 dark:text-green-400">Test Your Knowledge</h2>
 
           <PracticeExercise
             title="Banking Basics Quiz"
@@ -187,46 +188,8 @@ export default function BankingServicesPage() {
             ]}
           />
         </section>
-
-        {/* Additional Resources */}
-        <section className="space-y-6">
-          <h2 className="text-2xl font-semibold text-green-700">Helpful Resources</h2>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            <Card className="border-green-100">
-              <CardContent className="pt-6">
-                <h3 className="mb-4 text-lg font-medium text-green-800">Important Phone Numbers</h3>
-                <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-center justify-between">
-                    <span>Banking Helpline</span>
-                    <span className="font-medium">1800-111-111</span>
-                  </li>
-                  <li className="flex items-center justify-between">
-                    <span>Block ATM Card</span>
-                    <span className="font-medium">1800-222-222</span>
-                  </li>
-                  <li className="flex items-center justify-between">
-                    <span>UPI Help</span>
-                    <span className="font-medium">1800-333-333</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="border-green-100">
-              <CardContent className="pt-6">
-                <h3 className="mb-4 text-lg font-medium text-green-800">Documents Needed</h3>
-                <ul className="ml-4 list-disc space-y-2 text-gray-600">
-                  <li>Aadhaar Card</li>
-                  <li>PAN Card</li>
-                  <li>Passport size photo</li>
-                  <li>Address proof</li>
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
       </div>
     </LearnLayout>
   )
 }
+

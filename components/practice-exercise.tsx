@@ -55,27 +55,22 @@ export function PracticeExercise({ title, description, questions }: PracticeExer
             {question.options?.map((option, index) => (
               <div key={index} className="flex items-center space-x-2">
                 <RadioGroupItem value={option} id={`option-${index}`} />
-                <Label htmlFor={`option-${index}`}>{option}</Label>
+                <Label htmlFor={`option-${index}`} className="text-foreground">
+                  {option}
+                </Label>
               </div>
             ))}
           </RadioGroup>
         )
       case "number":
-        return (
-          <Input
-            type="number"
-            value={answer.toString()}
-            onChange={(e) => setAnswer(Number(e.target.value))}
-            placeholder="Enter your answer"
-          />
-        )
       case "text":
         return (
           <Input
-            type="text"
+            type={question.type}
             value={answer.toString()}
-            onChange={(e) => setAnswer(e.target.value)}
+            onChange={(e) => setAnswer(question.type === "number" ? Number(e.target.value) : e.target.value)}
             placeholder="Enter your answer"
+            className="bg-background text-foreground"
           />
         )
     }
@@ -83,12 +78,12 @@ export function PracticeExercise({ title, description, questions }: PracticeExer
 
   if (complete) {
     return (
-      <Card className="border-green-100">
+      <Card className="border-border bg-card">
         <CardContent className="pt-6">
           <div className="text-center">
-            <Trophy className="mx-auto h-12 w-12 text-green-600" />
-            <h3 className="mt-4 text-xl font-semibold text-green-800">Exercise Complete!</h3>
-            <p className="mt-2 text-gray-600">
+            <Trophy className="mx-auto h-12 w-12 text-green-600 dark:text-green-400" />
+            <h3 className="mt-4 text-xl font-semibold text-foreground">Exercise Complete!</h3>
+            <p className="mt-2 text-muted-foreground">
               You scored {score} out of {questions.length}
             </p>
             <Button
@@ -99,7 +94,7 @@ export function PracticeExercise({ title, description, questions }: PracticeExer
                 setScore(0)
                 setComplete(false)
               }}
-              className="mt-4 bg-green-600 hover:bg-green-700"
+              className="mt-4 bg-green-600 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-600"
             >
               Try Again
             </Button>
@@ -110,18 +105,18 @@ export function PracticeExercise({ title, description, questions }: PracticeExer
   }
 
   return (
-    <Card className="border-green-100">
+    <Card className="border-border bg-card">
       <CardHeader>
-        <CardTitle className="text-xl text-green-800">{title}</CardTitle>
-        <p className="text-gray-600">{description}</p>
+        <CardTitle className="text-xl text-foreground">{title}</CardTitle>
+        <p className="text-muted-foreground">{description}</p>
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="space-y-4">
           <div>
-            <h4 className="font-medium text-green-800">
+            <h4 className="font-medium text-foreground">
               Question {currentQuestion + 1} of {questions.length}
             </h4>
-            <p className="mt-2 text-gray-600">{questions[currentQuestion].question}</p>
+            <p className="mt-2 text-muted-foreground">{questions[currentQuestion].question}</p>
           </div>
 
           <div className="space-y-4">
@@ -131,8 +126,8 @@ export function PracticeExercise({ title, description, questions }: PracticeExer
               <div
                 className={`flex items-center gap-2 rounded-lg p-4 ${
                   answer === questions[currentQuestion].correctAnswer
-                    ? "bg-green-50 text-green-800"
-                    : "bg-red-50 text-red-800"
+                    ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100"
+                    : "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100"
                 }`}
               >
                 {answer === questions[currentQuestion].correctAnswer ? (
@@ -149,7 +144,11 @@ export function PracticeExercise({ title, description, questions }: PracticeExer
               </div>
             )}
 
-            <Button onClick={handleSubmit} className="w-full bg-green-600 hover:bg-green-700" disabled={answer === ""}>
+            <Button
+              onClick={handleSubmit}
+              className="w-full bg-green-600 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-600"
+              disabled={answer === ""}
+            >
               {showResult
                 ? currentQuestion < questions.length - 1
                   ? "Next Question"

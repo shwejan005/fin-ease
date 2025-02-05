@@ -9,15 +9,16 @@ interface StoryCardProps {
 
 export function StoryCard({ title, story, moral }: StoryCardProps) {
   return (
-    <Card className="border-green-400/20 bg-green-50/50">
+    <Card className="border-green-600/20 bg-accent dark:border-green-400/20">
       <CardHeader className="flex flex-row items-center gap-2">
-        <Quote className="h-5 w-5 text-green-600" />
-        <CardTitle className="text-lg font-medium text-green-800">{title}</CardTitle>
+        <Quote className="h-5 w-5 text-green-600 dark:text-green-400" />
+        <CardTitle className="text-lg font-medium text-foreground">{title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="text-gray-600">{story}</p>
-        {moral && <p className="mt-4 font-medium text-green-700">सीख (Lesson): {moral}</p>}
+        <p className="text-muted-foreground">{story}</p>
+        {moral && <p className="mt-4 font-medium text-green-600 dark:text-green-400">Lesson: {moral}</p>}
       </CardContent>
     </Card>
   )
 }
+
