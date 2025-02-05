@@ -76,11 +76,6 @@ const navigation = [
         href: "/dashboard/budget",
       },
       {
-        title: "Loan Calculator",
-        icon: Calculator,
-        href: "/dashboard/loan-calculator",
-      },
-      {
         title: "Credit Health",
         icon: CreditCard,
         href: "/dashboard/credit",
@@ -95,6 +90,11 @@ const navigation = [
   {
     title: "Loans",
     items: [
+      {
+        title: "Loan Calculator",
+        icon: Calculator,
+        href: "/dashboard/loan-calculator",
+      },
       {
         title: "Status",
         icon: Users,
@@ -138,7 +138,7 @@ export function DashboardSidebar() {
         <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton size="lg" asChild>
-                <Link href="/dashboard" className="flex items-center justify-center gap-2">
+                <Link href="/" className="flex items-center justify-center gap-2">
                   <div className="flex flex-col gap-0.5 leading-none">
                     <span className={`${silkScreen.className} text-2xl font-semibold text-green-600`}>FinEase</span>
                     <span className="text-xs text-center text-muted-foreground">Dashboard</span>

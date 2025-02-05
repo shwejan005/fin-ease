@@ -170,4 +170,104 @@ export const updateAdditionalDetails = mutation({
       await ctx.db.delete(args.id);
     },
   });
-  
+
+// Fetch Loans for the user
+export const getLoans = query({
+  args: { clerkId: v.string() },
+  handler: async (ctx, args) => {
+    return await ctx.db
+      .query("loans")
+      .withIndex("by_clerk_id", (q) => q.eq("clerkId", args.clerkId))
+      .collect();
+  },
+});
+
+// Add a loan (for borrowing or lending)
+export const addLoan = mutation({
+  args: {
+    clerkId: v.string(),
+    title: v.string(),
+    amount: v.number(),
+    interestRate: v.number(),
+    loanTerm: v.number(),
+    startDate: v.string(),
+    status: v.string(),
+    remainingBalance: v.number(),
+  },
+  handler: async (ctx, args) => {
+    return await ctx.db.insert("loans", args);
+  },
+});
+
+// Update Loan Status (e.g., "paid off", "active", etc.)
+export const updateLoanStatus = mutation({
+  args: {
+    loanId: v.id("loans"),
+    status: v.string(),
+  },
+  handler: async (ctx, args) => {
+    await ctx.db.patch(args.loanId, { status: args.status });
+  },
+});
+
+// Add a transaction (Lend or Borrow)
+export const addTransaction = mutation({
+  args: {
+    clerkId: v.string(),
+    transactionType: v.string(),
+    amount: v.number(),
+    interestRate: v.number(),
+    loanTerm: v.number(),
+    startDate: v.string(),
+    endDate: v.string(),
+    status: v.string(),
+  },
+  handler: async (ctx, args) => {
+    return await ctx.db.insert("transactions", args);
+  },
+});
+
+// Fetch Transaction History for the user
+export const getTransactions = query({
+  args: { clerkId: v.string() },
+  handler: async (ctx, args) => {
+    return await ctx.db
+      .query("transactions")
+      .withIndex("by_clerk_id", (q) => q.eq("clerkId", args.clerkId))
+      .collect();
+  },
+});
+
+// Get Loan Status Summary for a user (active loans, total borrowed/lent)
+export const getLoanStatus = query({
+  args: { clerkId: v.string() },
+  handler: async (ctx, args) => {
+    return await ctx.db
+      .query("loanStatus")
+      .withIndex("by_clerk_id", (q) => q.eq("clerkId", args.clerkId))
+      .first();
+  },
+});
+
+// Update loan status summary for the user
+export const updateLoanStatusSummary = mutation({
+  args: {
+    clerkId: v.string(),
+    totalLoans: v.number(),
+    activeLoans: v.number(),
+    totalBorrowed: v.number(),
+    totalLent: v.number(),
+  },
+  handler: async (ctx, args) => {
+    const existingStatus = await ctx.db
+      .query("loanStatus")
+      .withIndex("by_clerk_id", (q) => q.eq("clerkId", args.clerkId))
+      .first();
+
+    if (existingStatus) {
+      await ctx.db.patch(existingStatus._id, args);
+    } else {
+      await ctx.db.insert("loanStatus", args);
+    }
+  },
+});
