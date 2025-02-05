@@ -1,21 +1,21 @@
 "use client"
-import { usePathname } from "next/navigation"
 import {
   BookOpen,
+  Bot,
+  BrainCircuit,
   Calculator,
   CreditCard,
-  PiggyBank,
-  BellRing,
-  Bot,
-  Trophy,
-  Users,
-  BrainCircuit,
   Factory,
-  LineChart,
+  FormInput,
   LayoutDashboard,
-  Settings,
+  LineChart,
+  PiggyBank,
+  Trophy,
+  Users
 } from "lucide-react"
+import { usePathname } from "next/navigation"
 
+import { silkScreen } from "@/app/layout"
 import {
   Sidebar,
   SidebarContent,
@@ -29,7 +29,7 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar"
 import Link from "next/link"
-import { silkScreen } from "@/app/layout"
+import { UserButton } from "@clerk/nextjs"
 
 const navigation = [
   {
@@ -61,6 +61,11 @@ const navigation = [
     title: "Financial Tools",
     items: [
       {
+        title: "Details",
+        icon: FormInput,
+        href: "/dashboard/details"
+      },
+      {
         title: "Expense Tracking",
         icon: PiggyBank,
         href: "/dashboard/expenses",
@@ -88,12 +93,27 @@ const navigation = [
     ],
   },
   {
+    title: "Loans",
+    items: [
+      {
+        title: "Status",
+        icon: Users,
+        href: "/dashboard/status",
+      },
+      {
+        title: "Lend or Borrow",
+        icon: Factory,
+        href: "/dashboard/lend-or-borrow",
+      },
+    ],
+  },
+  {
     title: "Community",
     items: [
       {
         title: "Forum",
         icon: Users,
-        href: "/dashboard/community",
+        href: "/dashboard/forum",
       },
       {
         title: "Rural Business Hub",
@@ -104,21 +124,6 @@ const navigation = [
         title: "Rewards",
         icon: Trophy,
         href: "/dashboard/rewards",
-      },
-    ],
-  },
-  {
-    title: "Preferences",
-    items: [
-      {
-        title: "Notifications",
-        icon: BellRing,
-        href: "/dashboard/notifications",
-      },
-      {
-        title: "Settings",
-        icon: Settings,
-        href: "/dashboard/settings",
       },
     ],
   },
@@ -156,10 +161,10 @@ export function DashboardSidebar() {
                       isActive={pathname === item.href}
                       className="hover:bg-gray-100 dark:hover:bg-gray-900"
                     >
-                      <a href={item.href}>
+                      <Link href={item.href}>
                         <item.icon className="h-4 w-4" />
                         <span>{item.title}</span>
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
@@ -167,6 +172,7 @@ export function DashboardSidebar() {
             </SidebarGroupContent>
           </SidebarGroup>
         ))}
+                <UserButton />
       </SidebarContent>
       <SidebarRail />
     </Sidebar>
